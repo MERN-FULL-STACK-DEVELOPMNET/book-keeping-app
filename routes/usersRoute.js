@@ -9,7 +9,7 @@ const generateToken = require('../utils/generateToken');
 
 //Register User
 usersRoute.post('/register', asyncHandler(async(req,res) => {
-    const {name, todolist, email, password} = req.body;
+    const {name, email, password} = req.body;
     const userExits = await User.findOne({email: email});
     if(userExits){
         throw new Error('User Exist');
